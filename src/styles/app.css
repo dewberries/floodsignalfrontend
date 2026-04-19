@@ -974,20 +974,52 @@ textarea {
 @media (max-width: 700px) {
   .header {
     height: auto;
-    min-height: 74px;
+    min-height: unset;
     padding: 14px 16px;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     gap: 12px;
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+
+  .header-logo {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .header-brand > div {
+    min-width: 0;
+    flex: 1;
   }
 
   .header h1 {
     font-size: 20px;
+    line-height: 1.05;
+    margin: 0 0 4px;
+  }
+
+  .header .subtle {
+    font-size: 12px;
+    line-height: 1.35;
   }
 
   .header-actions {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .header-actions .mode-toggle-btn:last-child {
+    grid-column: 1 / -1;
   }
 
   .main-grid,
@@ -1025,9 +1057,10 @@ textarea {
   }
 
   .gauge-view-toggle {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
     width: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
   }
 
   .about-grid .about-grid-wide {
